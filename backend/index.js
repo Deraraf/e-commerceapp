@@ -16,6 +16,7 @@ import orderRoutes from "./routes/orderRoutes.js";
 dotenv.config();
 const port = process.env.PORT || 5000;
 
+await connectedDB();
 const app = express();
 app.use(
   cors({
@@ -25,7 +26,6 @@ app.use(
   })
 );
 
-await connectedDB();
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));

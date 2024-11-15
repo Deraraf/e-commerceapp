@@ -15,10 +15,7 @@ const connectedDB = async () => {
   }
 
   try {
-    await mongoose.connect(
-      process.env.MONGODB_URI ||
-        "mongodb+srv://derarageremu:ITtR4jKOWS0kfe97@cluster0.7bent.mongodb.net/ecomerce?retryWrites=true&w=majority&appName=Cluster0"
-    );
+    await mongoose.connect(process.env.MONGODB_URI);
     mongoose.connection.once("open", () => {
       console.log("Connected to MongoDB");
     });
