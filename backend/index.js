@@ -20,8 +20,8 @@ await connectedDB();
 const app = express();
 app.use(
   cors({
-    origin: "e-commerce-app-api-two.vercel.app",
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    origin: ["https://e-commerce-app-api-two.vercel.app"],
+    methods: ["GET,HEAD,PUT,PATCH,POST,DELETE"],
     credentials: true,
   })
 );
