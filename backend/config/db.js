@@ -16,9 +16,7 @@ const connectedDB = async () => {
 
   try {
     await mongoose.connect(process.env.MONGODB_URI);
-    mongoose.connection.once("open", () => {
-      console.log("Connected to MongoDB");
-    });
+    console.log("Connected to MongoDB");
   } catch (error) {
     console.log("Error connecting to MongoDB", error);
     process.exit(1); // Exit on failure to avoid running without a DB connection
