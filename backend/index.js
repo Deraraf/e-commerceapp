@@ -1,11 +1,8 @@
-//packeges
 import express from "express";
 import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
 import cors from "cors";
 import path from "path";
-
-//utils
 import connectedDB from "./config/db.js";
 import usersRoutes from "./routes/userRoutes.js";
 import categoryRoutes from "./routes/categoryRoutes.js";
@@ -42,6 +39,16 @@ app.get("/api/config/paypal", (req, res) => {
 
 const __dirname = path.resolve();
 app.use("/uploads", express.static(path.join(__dirname + "/uploads")));
+
+// Root route for the API
+app.get("/", (req, res) => {
+  res.send("Welcome to the E-commerce API");
+});
+
+// Catch-all route for undefined paths
+app.use((req, res) => {
+  res.status(404).send("API route not found");
+});
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
