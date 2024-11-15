@@ -17,7 +17,7 @@ await connectedDB();
 const app = express();
 app.use(
   cors({
-    origin: [""],
+    origin: ["https://e-commerceapp-omega.vercel.app"],
     methods: ["GET,HEAD,PUT,PATCH,POST,DELETE"],
     credentials: true,
   })
