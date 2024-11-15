@@ -3,7 +3,7 @@ import { useGetProductsQuery } from "../redux/api/productApiSlice";
 import { Link, useParams } from "react-router-dom";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
-import Product from "./Products/Product";
+import Product from "./products/Product";
 import Header from "../components/Header";
 
 const Home = () => {
