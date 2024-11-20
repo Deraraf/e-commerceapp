@@ -15,7 +15,16 @@ const port = process.env.PORT || 5000;
 
 await connectedDB();
 const app = express();
-app.use(cors());
+const allowedOrigins = [
+  "https://your-frontend-url.vercel.app",
+  "http://localhost:3000", // For development
+];
+app.use(
+  cors({
+    origin: allowedOrigins,
+    credentials: true, // If using cookies
+  })
+);
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
