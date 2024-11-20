@@ -15,21 +15,7 @@ const port = process.env.PORT || 5000;
 
 await connectedDB();
 const app = express();
-const allowedOrigins = ["https://e-commerce-app-frontend-orcin.vercel.app"];
-
-app.use(
-  cors({
-    origin: (origin, callback) => {
-      if (allowedOrigins.includes(origin) || !origin) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
-    credentials: true, // If cookies or authentication tokens are used
-  })
-);
-
+app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
