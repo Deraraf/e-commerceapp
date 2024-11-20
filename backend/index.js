@@ -16,8 +16,8 @@ const port = process.env.PORT || 5000;
 await connectedDB();
 const app = express();
 const allowedOrigins = [
-  "https://your-frontend-url.vercel.app",
-  "http://localhost:3000", // For development
+  "https://e-commerce-app-apimern.vercel.app/",
+  "http://localhost:5000", // For development
 ];
 app.use(
   cors({
