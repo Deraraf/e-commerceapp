@@ -17,12 +17,19 @@ await connectedDB();
 const app = express();
 const allowedOrigins = [
   "https://e-commerce-app-frontend-orcin.vercel.app", // Production
-  "http://localhost:5173", // Development (Vite's default)
+  "http://localhost:5173", // Development
 ];
+
 app.use(
   cors({
-    origin: allowedOrigins,
-    credentials: true, // If using cookies
+    origin: function (origin, callback) {
+      if (allowedOrigins.includes(origin) || !origin) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true, // Allow credentials (cookies)
   })
 );
 app.use(express.json());
