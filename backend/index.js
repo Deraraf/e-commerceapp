@@ -16,20 +16,20 @@ const port = process.env.PORT || 5000;
 await connectedDB();
 const app = express();
 const allowedOrigins = [
-  "https://e-commerce-app-frontend-orcin.vercel.app", // Production
-  "http://localhost:5173", // Development
+  "https://e-commerce-app-frontend-orcin.vercel.app", // Frontend in production
+  "http://localhost:5173", // Frontend for development
 ];
 
 app.use(
   cors({
     origin: function (origin, callback) {
-      if (allowedOrigins.includes(origin) || !origin) {
-        callback(null, true);
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true); // Allow the request
       } else {
         callback(new Error("Not allowed by CORS"));
       }
     },
-    credentials: true, // Allow credentials (cookies)
+    credentials: true, // Enable cookies and credentials
   })
 );
 app.use(express.json());
