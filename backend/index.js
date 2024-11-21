@@ -16,8 +16,8 @@ const port = process.env.PORT || 5000;
 await connectedDB();
 const app = express();
 const allowedOrigins = [
-  "https://e-commerce-app-frontend-orcin.vercel.app",
-  "http://localhost:5000", // For development
+  "https://e-commerce-app-frontend-orcin.vercel.app", // Production
+  "http://localhost:5173", // Development (Vite's default)
 ];
 app.use(
   cors({
