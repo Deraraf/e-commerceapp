@@ -1,5 +1,6 @@
-export const BASE_URL =
-  import.meta.env.VITE_BASE_URL || "https://e-commerce-app-apimern.vercel.app";
+export const BASE_URL = import.meta.env.DEV
+  ? "http://localhost:5000" // Backend for local development
+  : "https://e-commerce-app-apimern.vercel.app"; // Production backend
 export const USERS_URL = "/api/users";
 export const CATEGORY_URL = "/api/category";
 export const PRODUCT_URL = "/api/products";
