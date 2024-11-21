@@ -32,10 +32,10 @@ app.use(
     credentials: true, // Enable cookies and credentials
   })
 );
-app.use(express.json());
-app.use(cookieParser());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.json({ limit: "10mb" })); // Increase JSON payload size
+app.use(express.urlencoded({ limit: "10mb", extended: true })); // Increase URL-encoded payload size
 
+app.use(cookieParser());
 const __dirname = path.resolve();
 app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
 
